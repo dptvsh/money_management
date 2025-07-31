@@ -1,0 +1,8 @@
+VPS,infrastructure_expense,vps_expense
+VPS,infrastructure_income,vps_income
+Proxy,infrastructure_expense,proxy_expense
+Proxy,infrastructure_income,proxy_income
+Farpost,marketing_expense,farpost_expense
+Farpost,marketing_income,farpost_income
+Avito,marketing_expense,avito_expense
+Avito,marketing_income,avito_income
