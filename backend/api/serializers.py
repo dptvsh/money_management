@@ -7,6 +7,8 @@ from money.models import (Category, OperationStatus, OperationType, Record,
 
 
 class OperationTypeSerializer(serializers.ModelSerializer):
+    """Сериализатор типов операций."""
+
     class Meta:
         model = OperationType
         fields = (
@@ -15,6 +17,8 @@ class OperationTypeSerializer(serializers.ModelSerializer):
 
 
 class OperationStatusSerializer(serializers.ModelSerializer):
+    """Сериализатор статусов операций."""
+
     class Meta:
         model = OperationStatus
         fields = (
@@ -23,6 +27,8 @@ class OperationStatusSerializer(serializers.ModelSerializer):
 
 
 class SubCategorySerializer(serializers.ModelSerializer):
+    """Сериализатор подкатегорий."""
+
     class Meta:
         model = SubCategory
         fields = (
@@ -31,6 +37,8 @@ class SubCategorySerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    """Сериализатор категорий."""
+
     subcategories = SubCategorySerializer(
         many=True,
         read_only=True,
@@ -45,6 +53,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class RecordSerializer(serializers.ModelSerializer):
+    """Сериализатор для записей."""
+
     operation_date = serializers.CharField()
     status = serializers.SlugRelatedField(
         slug_field='code',

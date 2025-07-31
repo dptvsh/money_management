@@ -11,7 +11,7 @@ from money.models import (Category, OperationStatus, OperationType, Record,
 
 class CatalogViewSet(viewsets.ModelViewSet):
     """
-    Базовый ViewSet для справочников с SlugField как PK.
+    Базовый вьюсет для справочников с SlugField как PK.
     Поддерживает lookup_field = 'code' для всех операций.
     """
 
@@ -20,6 +20,8 @@ class CatalogViewSet(viewsets.ModelViewSet):
 
 
 class RecordViewSet(viewsets.ModelViewSet):
+    """Вьюсет записей."""
+
     queryset = Record.objects.select_related(
         'status', 'operation_type', 'category', 'subcategory'
     ).order_by('-operation_date')
@@ -34,16 +36,22 @@ class RecordViewSet(viewsets.ModelViewSet):
 
 
 class OperationTypeViewSet(CatalogViewSet):
+    """Вьюсет типов операций."""
+
     queryset = OperationType.objects.all().order_by('name')
     serializer_class = OperationTypeSerializer
 
 
 class OperationStatusViewSet(CatalogViewSet):
+    """Вьюсет статусов операций."""
+
     queryset = OperationStatus.objects.all().order_by('name')
     serializer_class = OperationStatusSerializer
 
 
 class CategoryViewSet(CatalogViewSet):
+    """Вьюсет категорий."""
+
     serializer_class = CategorySerializer
 
     def get_queryset(self):
@@ -55,6 +63,8 @@ class CategoryViewSet(CatalogViewSet):
 
 
 class SubCategoryViewSet(CatalogViewSet):
+    """Вьюсет подкатегорий."""
+
     serializer_class = SubCategorySerializer
 
     def get_queryset(self):

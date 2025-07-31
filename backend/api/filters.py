@@ -4,6 +4,11 @@ from money.models import Record
 
 
 class RecordFilter(filters.FilterSet):
+    """
+    Фильтр для записей, поддерживает фильтрацию по диапазону дат,
+    категории, подкатегории, типу и статусу операции.
+    """
+
     operation_date = filters.DateFromToRangeFilter(
         field_name='operation_date',
         label='Диапазон дат (YYYY-MM-DD)',

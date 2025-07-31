@@ -5,6 +5,8 @@ from money.constants import MAX_LENGTH_CODE_NAME, MAX_LENGTH_NAME
 
 
 class OperationType(models.Model):
+    """Модель типов операций."""
+
     name = models.CharField(
         verbose_name='Название типа операции',
         max_length=MAX_LENGTH_NAME,
@@ -25,6 +27,8 @@ class OperationType(models.Model):
 
 
 class OperationStatus(models.Model):
+    """Модель статусов операций."""
+
     name = models.CharField(
         verbose_name='Название статуса операции',
         max_length=MAX_LENGTH_NAME,
@@ -45,6 +49,8 @@ class OperationStatus(models.Model):
 
 
 class Category(models.Model):
+    """Модель категорий."""
+
     name = models.CharField(
         verbose_name='Название категории',
         max_length=MAX_LENGTH_NAME,
@@ -76,6 +82,8 @@ class Category(models.Model):
 
 
 class SubCategory(models.Model):
+    """Модель подкатегорий."""
+
     name = models.CharField(
         verbose_name='Название подкатегории',
         max_length=MAX_LENGTH_NAME,
@@ -107,6 +115,8 @@ class SubCategory(models.Model):
 
 
 class Record(models.Model):
+    """Модель записей ДДС."""
+
     created_at = models.DateTimeField(
         verbose_name='Дата создания записи',
         auto_now_add=True,
